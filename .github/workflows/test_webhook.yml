@@ -1,0 +1,16 @@
+name: Test Webhook Trigger
+
+on:
+  workflow_dispatch:  # Allows manual triggering
+  repository_dispatch:  # Allows triggering via external API
+
+jobs:
+  test_webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Log Trigger Message
+        run: echo "GitHub Action triggered by API!"
